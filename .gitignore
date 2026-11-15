@@ -16,3 +16,14 @@ dist/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# gizli/yerel
+.claude/
+.codex/
+.superpowers/
+.graphify*
+graphify-out/
+AGENTS.md
+CLAUDE.md
+*.log
+.env

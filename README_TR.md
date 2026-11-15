@@ -1,3 +1,17 @@
+# Melek Kanatları 3D (Supernatural'dan esinlenen)
+
+Hayran yapımı, resmî olmayan bir Blockbench modeli: 150 küp, 81 kemik, 5 animasyon, 64x64 doku.
+
+- Site ve 3B görüntüleyici: https://ozcinax-star.github.io/Alternatif-kanatlar-3D/
+- İndir: https://github.com/ozcinax-star/Alternatif-kanatlar-3D/releases/latest (zip: model, doku, önizleme, betikler)
+- Lisans: MIT (model, doku, betikler). Supernatural ve ilgili adlar hak sahiplerine aittir; depoda diziden hiçbir görüntü yoktur. `site/vendor/` three.js (MIT), yazı tipi Bricolage Grotesque (SIL OFL 1.1).
+
+English: fan-made, unofficial angel-wing model for Blockbench (.bbmodel) inspired by the TV show Supernatural, with a browser viewer on the site. Not tested with BetterModel/Geyser (see below).
+
+Not: `arac/` betikleri MCP çıktısı dosyalarına (geometry.json vb.) bağlıdır; bağımsız çalıştırılabilir bir araç değil, modelin nasıl üretildiğinin kaydıdır.
+
+---
+
 # Supernatural Tarzı Melek Kanatları (Paper 26.1 plugin için)
 
 ## Dosyalar

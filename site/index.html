@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melek Kanatları 3D · Supernatural'dan esinlenen Blockbench modeli</title>
+<meta name="description" content="Supernatural dizisinden esinlenen, 150 küp ve 81 kemikten oluşan, 5 animasyonlu melek kanadı modeli. Tarayıcıda döndürün, açıp kapatın; .bbmodel dosyasını indirin. Hayran yapımı, resmî olmayan çalışma.">
+<link rel="canonical" href="https://ozcinax-star.github.io/Alternatif-kanatlar-3D/">
+<meta property="og:title" content="Melek Kanatları 3D">
+<meta property="og:description" content="Supernatural'dan esinlenen, animasyonlu 3B melek kanadı modeli (Blockbench). Hayran yapımı.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ozcinax-star.github.io/Alternatif-kanatlar-3D/img/acik_arkadan.png">
+<meta name="theme-color" content="#eeeef2">
+<link rel="icon" href="model/angel_wings.png" type="image/png">
+<link rel="preload" href="fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#ana">İçeriğe geç</a>
+
+<header class="top">
+  <a class="mark" href="./" aria-label="Melek Kanatları 3D, sayfa başı">Melek Kanatları <b>3D</b></a>
+  <nav aria-label="Ana gezinme">
+    <a href="#acilis">Açılış</a>
+    <a href="#animasyonlar">Animasyonlar</a>
+    <a href="#galeri">Önizleme</a>
+    <a href="#indir" class="nav-dl">İndir</a>
+  </nav>
+</header>
+
+<main id="ana">
+<!-- 1. İlk ekran: modelin kendisi -->
+<section class="hero" id="model" aria-labelledby="h1">
+  <div class="hero-type" aria-hidden="true">Kanatlar</div>
+  <img class="fallback" src="img/acik_arkadan.png" alt="Açık kanatların arkadan görünümü" width="520" height="520" hidden>
+  <canvas id="heroGL" tabindex="0" role="img" aria-label="Melek kanadı modelinin etkileşimli 3B görüntüsü. Sürükleyerek döndürün; ok tuşları ve + / - ile de kullanılır."></canvas>
+  <div class="hero-copy">
+    <h1 id="h1">Gölgesi görünen kanatlar, <span>bu kez 3B.</span></h1>
+    <p>Supernatural'dan esinlenen, 150 küp ve 81 kemikten oluşan melek kanadı modeli. Karşınızdaki dosyanın kendisi: sürükleyin, döndürün, açıp kapatın.</p>
+    <p class="cta">
+      <a class="btn" href="https://github.com/ozcinax-star/Alternatif-kanatlar-3D/releases/latest/download/supernatural-angel-wings.zip" download>Modeli indir (.zip)</a>
+      <a class="txt" href="#animasyonlar">Animasyonlar</a>
+    </p>
+  </div>
+  <div class="ctrl" role="group" aria-label="Animasyon seç">
+    <button data-anim="open" type="button">Açıl</button>
+    <button data-anim="idle" type="button" aria-pressed="true">Boşta</button>
+    <button data-anim="hover" type="button">Havada</button>
+    <button data-anim="fly" type="button">Süzülme</button>
+    <button data-anim="close" type="button">Kapan</button>
+    <span class="hint">sürükle: döndür</span>
+  </div>
+</section>
+
+<!-- 2. Kaydırmayla açılış -->
+<section class="scene" id="acilis" aria-labelledby="h-acilis">
+  <div class="stage">
+    <canvas id="sceneGL" aria-label="Kaydırdıkça açılan kanat"></canvas>
+    <div class="scene-copy">
+      <p class="eyebrow">open animasyonu · 1,3 sn</p>
+      <h2 id="h-acilis">Sırttan açılır.</h2>
+      <p class="step" data-at="0">Önce hiçbir şey yok: kanat sırtta, ölçeği sıfıra yakın.</p>
+      <p class="step" data-at="0.35">Tüyler içten dışa belirir, kanat omuzdan yelpaze gibi açılır.</p>
+      <p class="step" data-at="0.8">Hafif aşmayla yerine oturur. Son kare, <code>idle</code> animasyonunun ilk karesidir.</p>
+    </div>
+    <div class="bar" aria-hidden="true"><i></i></div>
+  </div>
+</section>
+
+<!-- 3. Sayılar -->
+<section class="facts" aria-label="Modelin ölçüleri">
+  <dl>
+    <div><dt>küp</dt><dd>150</dd></div>
+    <div><dt>kemik</dt><dd>81</dd></div>
+    <div><dt>animasyon</dt><dd>5</dd></div>
+    <div><dt>kanat açıklığı</dt><dd>≈ 5 <small>blok</small></dd></div>
+  </dl>
+  <p>64×64 piksel tek doku, modelin içinde gömülü. Her tüy ayrı bir kemik, bu yüzden tüyler birbirinden gecikmeli hareket eder.</p>
+</section>
+
+<!-- 4. Tasarım -->
+<section class="design" aria-labelledby="h-tasarim">
+  <div class="col-a">
+    <h2 id="h-tasarim">Dizide kanatlar hiç 3B gösterilmedi.</h2>
+  </div>
+  <div class="col-b">
+    <p>Yalnızca duvara yansıyan ya da yere yanan <b>gölge</b> olarak görüldüler. Bu modelin tasarımı o izlerden çıkarıldı: siyah-lacivert, yırtıcı kuş tipi, çok geniş; uçları sivri <b>primer tüyler</b>, kol boyunca sıralı sekonder ve tertial tüyler, üstlerinde örtü tüyleri.</p>
+    <p>Omuzdan yükselip bilekte kırılan, dışa doğru yelpaze gibi açılan bir siluet. Ölçü ve renk resmî bir kaynağa dayanmıyor; bu bir yorum.</p>
+    <p class="aside">Hiçbir dizi karesi ya da resmî görsel kullanılmadı. Bu sayfadaki her şey modelin kendisi ve onun önizleme çizimleridir.</p>
+  </div>
+</section>
+
+<!-- 5. Animasyonlar -->
+<section class="anims" id="animasyonlar" aria-labelledby="h-anim">
+  <h2 id="h-anim">Beş animasyon, tek akış.</h2>
+  <p class="lead">Önerilen sıra: <code>open</code> → (<code>idle</code> | <code>hover</code> | <code>fly</code>) → <code>close</code> → modeli kaldır.</p>
+  <ol class="alist">
+    <li><button type="button" data-play="open"><span class="n">open</span><span class="d">1,3 sn · bir kez</span><span class="t">Tüyler içten dışa belirir, kanatlar sırttan açılır, hafif aşmayla yerleşir.</span></button></li>
+    <li><button type="button" data-play="idle"><span class="n">idle</span><span class="d">5 sn · döngü</span><span class="t">Yerde nefes alma, tüy dalgalanması, ara sıra primer tüy kıpırtısı. Sol ve sağ biraz farklı fazda.</span></button></li>
+    <li><button type="button" data-play="hover"><span class="n">hover</span><span class="d">3,2 sn · döngü</span><span class="t">Havada dik ya da yukarı giderken pasif çırpış; tüyler gecikmeli.</span></button></li>
+    <li><button type="button" data-play="fly"><span class="n">fly</span><span class="d">1,6 sn · döngü</span><span class="t">Elytra süzülmesi. Birinci şahıs kamerayı kapatmasın diye ince, geriye süpürülmüş bir çırpış.</span></button></li>
+    <li><button type="button" data-play="close"><span class="n">close</span><span class="d">1,3 sn · bir kez</span><span class="t">Z şeklinde katlanıp sırta yatar, tüyler dıştan içe küçülür, ölçek sıfıra iner. Bitince modeli kaldırın.</span></button></li>
+  </ol>
+  <p class="note">Bir satıra basınca yukarıdaki görüntüleyicide o animasyon oynar.</p>
+</section>
+
+<!-- 6. Önizleme -->
+<section class="gallery" id="galeri" aria-labelledby="h-gal">
+  <h2 id="h-gal">Çizim önizlemeleri</h2>
+  <p class="lead">Aracın kendi kinematiğiyle çizilen düz önizlemeler (Blockbench ekran görüntüsü değildir). Yukarıdaki 3B görünüm ise modelin gerçek dosyasından üretilir.</p>
+  <div class="grid">
+    <figure><img src="img/acik_arkadan.png" alt="Açık kanatlar, arkadan görünüm" width="520" height="520" loading="lazy"><figcaption>Açık, arkadan</figcaption></figure>
+    <figure><img src="img/acik_yandan.png" alt="Açık kanatlar, yandan görünüm" width="520" height="520" loading="lazy"><figcaption>Açık, yandan</figcaption></figure>
+    <figure><img src="img/kapali_arkadan.png" alt="Kapalı kanatlar, arkadan görünüm" width="520" height="520" loading="lazy"><figcaption>Kapalı, arkadan</figcaption></figure>
+    <figure><img src="img/suzulme_ust_gorunum.png" alt="Süzülme pozu, üstten görünüm" width="520" height="520" loading="lazy"><figcaption>Süzülme, üstten</figcaption></figure>
+  </div>
+</section>
+
+<!-- 7. Kamera -->
+<section class="cam" aria-labelledby="h-cam">
+  <h2 id="h-cam">Süzülürken kamerayı kapatmaz.</h2>
+  <p>Birinci şahıs süzülmede kanat ekranın yalnızca ince bir kenar çizgisini kaplar: görüş açısı 70 / 90 / 110 için sırasıyla <b>%2,1 / %1,8 / %1,6</b>. İlk denenen çırpışta bu oran %27 idi.</p>
+  <p class="small">Hesap, kameranın ayak noktasından yaklaşık 0,4 blok yukarıda olduğu kabulüne dayanır; bu değer kaynaklarda doğrulanamadı. Ayrıntı depodaki README'de.</p>
+</section>
+
+<!-- 8. İndir -->
+<section class="get" id="indir" aria-labelledby="h-dl">
+  <h2 id="h-dl">İndir</h2>
+  <div class="get-grid">
+    <div class="main">
+      <a class="btn big" href="https://github.com/ozcinax-star/Alternatif-kanatlar-3D/releases/latest/download/supernatural-angel-wings.zip" download>supernatural-angel-wings.zip</a>
+      <p>İçinde: <code>.bbmodel</code> (model + animasyon + gömülü doku), <code>angel_wings.png</code>, önizlemeler, üreten betikler, README ve lisans.</p>
+      <p><a class="txt" href="https://github.com/ozcinax-star/Alternatif-kanatlar-3D/releases/latest/download/supernatural_angel_wings.bbmodel" download>Yalnızca .bbmodel dosyası</a> · <a class="txt" href="https://github.com/ozcinax-star/Alternatif-kanatlar-3D/releases/latest">Sürüm sayfası</a> · <a class="txt" href="https://github.com/ozcinax-star/Alternatif-kanatlar-3D">Kaynak</a></p>
+    </div>
+    <ol class="steps">
+      <li><b>Blockbench</b>'i açın (ücretsiz, blockbench.net).</li>
+      <li><i>File &gt; Open Model</i> ile <code>supernatural_angel_wings.bbmodel</code> dosyasını seçin.</li>
+      <li>Animation sekmesinden <code>open</code>, <code>idle</code>, <code>hover</code>, <code>fly</code>, <code>close</code> animasyonlarını oynatın.</li>
+      <li>Paper eklentisi için dosyayı BetterModel'e verin (aşağıdaki duruma bakın).</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 9. Dürüst durum -->
+<section class="status" aria-labelledby="h-st">
+  <h2 id="h-st">Dürüst durum</h2>
+  <div class="two">
+    <div>
+      <h3>Yapıldı</h3>
+      <ul>
+        <li>Geometri ve animasyonlar Blockbench MCP ile canlı projede uygulandı; ölçülen sınırlar betikteki kinematikle ±0,01 px eşleşti.</li>
+        <li><code>arac/verify.mjs</code>: <code>open</code> son karesi = dinlenme pozu, <code>close</code> ilk karesi = dinlenme pozu, kapalı poz sırt gövdesinin içinde.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Denenmedi</h3>
+      <ul>
+        <li><code>.bbmodel</code> dosyası betikle yazıldı; Blockbench'te elle açılıp sınanmadı. Sorun görürseniz bildirin.</li>
+        <li>BetterModel (Paper, Java) ile bu dosya denenmedi.</li>
+        <li>Bedrock / Geyser desteği denenmedi.</li>
+        <li>Model Java blok sınırını (-16…32) aşıyor (açıklık 82 px); motorun büyük modeli nasıl böldüğü sınanmalı.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <p class="big">Melek Kanatları 3D</p>
+  <p>Hayran yapımı, resmî olmayan bir çalışmadır. Supernatural ve ilgili adlar ilgili hak sahiplerine aittir; bu projede diziden hiçbir görüntü ya da varlık bulunmaz.</p>
+  <p>Model, doku ve betikler MIT lisanslıdır. Üç boyutlu görüntüleyici <a href="vendor/LICENSE">three.js</a> (MIT), yazı tipi Bricolage Grotesque (SIL OFL 1.1) kullanır.</p>
+  <p><a href="https://github.com/ozcinax-star/Alternatif-kanatlar-3D">GitHub</a> · <a href="https://github.com/ozcinax-star/Alternatif-kanatlar-3D/releases/latest">Sürümler</a> · <a href="https://github.com/ozcinax-star/Alternatif-kanatlar-3D/blob/main/README_TR.md">README</a></p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
